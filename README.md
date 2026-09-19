@@ -1,4 +1,4 @@
-# AIVOA Copilot — Pharmaceutical Complaint Management System
+# AIVOA Copilot â€” Pharmaceutical Complaint Management System
 
 An AI-powered Quality Management System (QMS) copilot built with FastAPI, LangGraph, React, and SQLAlchemy. It automates unstructured complaint intake, dynamic risk evaluation, multi-turn conversational edits, and audit-ready database persistence.
 
@@ -20,37 +20,6 @@ An AI-powered Quality Management System (QMS) copilot built with FastAPI, LangGr
 - **Backend**: FastAPI, Python 3.10+
 - **Agent Orchestration**: LangGraph, LangChain, Groq
 - **Database**: SQLAlchemy (SQLite / PostgreSQL)
-
----
-
-## Project Structure
-
-\\\	ext
-aivoa-complaint-system/
-+-- backend/
-¦   +-- agent/
-¦   ¦   +-- graph.py
-¦   ¦   +-- state.py
-¦   +-- models/
-¦   ¦   +-- schemas.py
-¦   +-- utils/
-¦   ¦   +-- document_parser.py
-¦   +-- database.py
-¦   +-- db_models.py
-¦   +-- main.py
-¦   +-- requirements.txt
-+-- frontend/
-¦   +-- public/
-¦   +-- src/
-¦   ¦   +-- store/
-¦   ¦   +-- App.js
-¦   ¦   +-- index.js
-¦   +-- package.json
-+-- sample_complaints/
-+-- .gitignore
-+-- README.md
-\\\
-
 ---
 
 ## Getting Started
