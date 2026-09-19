@@ -1,0 +1,8 @@
+[Initial Chat Intake Prompt]
+A customer named Deepak Sharma called customer care on helpline regarding Paracetamol 650mg tablets, batch PCM-3345-A. The customer noticed an unusual bitter taste and crumbly texture when taking the tablet today. Pack of 15 tablets, 1 strip affected.
+
+[Multi-turn Edit Prompt 1]
+Actually the batch number should be PCM-3345-B, not A.
+
+[Multi-turn Edit Prompt 2]
+Increase the severity to High since we've had two similar complaints, and update the suggested next step to Initiate CAPA and notify Regulatory Affairs.
