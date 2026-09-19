@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/aivoa-complaint-system/static/css/main.6be362b3.css",
-    "main.js": "/aivoa-complaint-system/static/js/main.5bf152be.js",
+    "main.js": "/aivoa-complaint-system/static/js/main.3dc78554.js",
     "index.html": "/aivoa-complaint-system/index.html",
     "main.6be362b3.css.map": "/aivoa-complaint-system/static/css/main.6be362b3.css.map",
-    "main.5bf152be.js.map": "/aivoa-complaint-system/static/js/main.5bf152be.js.map"
+    "main.3dc78554.js.map": "/aivoa-complaint-system/static/js/main.3dc78554.js.map"
   },
   "entrypoints": [
     "static/css/main.6be362b3.css",
-    "static/js/main.5bf152be.js"
+    "static/js/main.3dc78554.js"
   ]
 }
