@@ -1,9 +1,11 @@
 fastapi
 uvicorn
-python-dotenv
+sqlalchemy
 python-multipart
+python-dotenv
 pydantic
-langchain-groq
 langgraph
-langchain-core
+langchain
+langchain-groq
+groq
 pypdf
