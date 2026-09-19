@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- BASE & TYPOGRAPHY --- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #a7caed; 
+  color: #0F172A;
+  margin: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+* { box-sizing: inherit; }
+
+h2, h3 { margin-top: 0; color: #0F172A; font-weight: 600; letter-spacing: -0.02em; }
+
+/* --- MAIN LAYOUT --- */
+.app-container {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 1280px; 
+  margin: 0 auto;
+}
+
+.panel {
+  background-color: #FFFFFF;
+  border-radius: 16px; 
+  border: 1px solid rgba(226, 232, 240, 0.6); 
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  transition: box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+.form-panel { flex: 2; padding: 2.5rem; }
+.ai-sidebar { flex: 1; padding: 2rem; background: linear-gradient(to bottom, #FFFFFF, #F8FAFC); height: fit-content; }
+
+/* --- HEADER & BADGES --- */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+.badge-warning { background-color: #FEF3C7; color: #D97706; }
+.badge-ai { background-color: #DBEAFE; color: #1D4ED8; }
+
+/* --- FORM SECTIONS --- */
+.section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748B;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.input-group { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* --- PREMIUM INPUTS & BOX OUTLINES --- */
+input[type="text"], 
+input[type="date"], 
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #94A3B8;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+
+textarea { min-height: 80px; resize: vertical; }
+
+/* --- UNIQUE OUTLINE FOR AI FIELDS (The 3D Tactile Look) --- */
+input:read-only, 
+textarea:read-only {
+  background-color: #F8FAFC; 
+  border: 1px solid rgba(99, 102, 241, 0.25); 
+  border-bottom: 2px solid rgba(99, 102, 241, 0.45); 
+  color: #1E293B;
+  font-weight: 500;
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.05), 0 2px 4px -2px rgba(99, 102, 241, 0.05); 
+  cursor: default;
+}
+
+input:read-only:hover, 
+textarea:read-only:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.6);
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 10px -2px rgba(99, 102, 241, 0.08); 
+}
+
+/* Glowing Focus Ring */
+input:not(:read-only):focus, 
+textarea:not(:read-only):focus,
+.chat-input:focus {
+  outline: none;
+  border-color: #4F46E5 !important; 
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05) !important; 
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn-primary:hover:not(:disabled) { background-color: #1D4ED8; }
+.btn-primary:disabled { background-color: #94A3B8; cursor: not-allowed; }
+
+.btn-success {
+  background-color: #10B981;
+  color: #FFFFFF;
+  font-size: 1rem;
+  padding: 0.85rem 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+.btn-success:hover { background-color: #059669; transform: translateY(-1px); }
+
+/* --- AI RISK ASSESSMENT PANEL (BONUS FEATURE) --- */
+.risk-assessment-panel {
+  background: linear-gradient(145deg, #F8FAFF 0%, #EEF2FF 100%);
+  border: 1px solid #C7D2FE;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px -3px rgba(99, 102, 241, 0.08); 
+}
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3730A3;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.risk-header svg {
+  width: 20px;
+  height: 20px;
+  color: #4F46E5;
+}
+
+.risk-assessment-panel .input-group label {
+  color: #3730A3; 
+}
+
+.risk-assessment-panel input:read-only {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E7FF;
+  box-shadow: inset 0 2px 4px rgba(99, 102, 241, 0.04);
+  color: #312E81;
+  font-weight: 500;
+}
+
+/* --- AI COPILOT CHAT UI --- */
+.ai-sidebar { 
+  flex: 1; 
+  background-color: #FAFAFA; 
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important; 
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.chat-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #F1F5F9;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #FFFFFF;
+}
+
+.chat-header-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-header-subtitle {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin-top: 4px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #6366F1;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #FAFAFA;
+  min-height: 400px;
+}
+
+.chat-message {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.bot-avatar {
+  width: 32px;
+  height: 32px;
+  background-color: #EEF2FF;
+  color: #4F46E5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.message-bubble {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.chat-input-area {
+  padding: 1rem 1.5rem;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+}
+
+/* Chat Box Wrapper with Glow */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #94A3B8;
+  border-radius: 8px;
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+.chat-input {
+  flex: 1;
+  border: none !important;
+  background: transparent !important;
+  padding: 0.5rem !important;
+  box-shadow: none !important;
+  font-size: 0.95rem;
+}
+
+.attach-btn {
+  color: #64748B;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding-right: 0.5rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.attach-btn:hover { color: #0F172A; }
+
+.send-btn {
+  background-color: #4F46E5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.send-btn:hover:not(:disabled) { background-color: #4338CA; }
+.send-btn:disabled { background-color: #A5B4FC; cursor: not-allowed; }
+
+.footer-text {
+  text-align: center;
+  font-size: 0.65rem;
+  color: #94A3B8;
+  margin-top: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* --- DRAG & DROP ZONE --- */
+.dropzone {
+  display: block;
+  border: 2px dashed #94A3B8;
+  border-radius: 12px;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #F8FAFC;
+  color: #64748B;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.dropzone:hover { 
+  border-color: #6366F1; 
+  background-color: #EEF2FF; 
+  color: #3730A3;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1); 
+  transform: translateY(-2px);
+}
+
+.progress-container {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: #c3dff6;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+}

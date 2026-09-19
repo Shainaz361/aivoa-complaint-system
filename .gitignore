@@ -1,0 +1,15 @@
+node_modules/
+frontend/node_modules/
+.venv/
+venv/
+__pycache__/
+.env
+backend/.env
+frontend/.env
+*.db
+*.sqlite
+*.sqlite3
+backend/qms_complaints.db
+build/
+frontend/build/
+dist/
