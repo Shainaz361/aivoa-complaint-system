@@ -1,55 +1,102 @@
-# AIVOA Copilot — Pharmaceutical Complaint Management System
+AIVOA Copilot — Pharmaceutical Complaint Management System
 
-An AI-powered Quality Management System (QMS) copilot built with FastAPI, LangGraph, React, and SQLAlchemy. It automates unstructured complaint intake, dynamic risk evaluation, multi-turn conversational edits, and audit-ready database persistence.
+An AI-powered Quality Management System (QMS) Copilot designed to automate unstructured complaint intake, clinical/batch entity extraction, dynamic risk triage, multi-turn conversational edits, and audit-ready database persistence.
 
----
+================================================================================
+KEY FEATURES
+================================================================================
 
-## Key Features
+- Unstructured Intake & Document Parsing: Ingests raw emails, PDF defect reports, and customer service call logs.
+- Dynamic Risk Triage: Uses LangGraph-driven state workflows to evaluate defect severity and recommend regulatory pathways (e.g., Immediate Batch Recall & CAPA vs. Quarantine & Inspection).
+- Intelligent Identity Resolution: Distinguishes reporting stakeholders (distributors, pharmacists, clinic staff) from end consumers while safely handling missing clinical fields.
+- Multi-Turn Conversational Memory: QA auditors can converse with the copilot to perform surgical field edits (e.g., batch number corrections, severity escalation) without wiping existing form state.
+- Audit-Ready Persistence: Validates extraction against strict Pydantic schemas and commits records to a relational SQL database.
 
-- **Document Parsing**: Ingests unstructured emails, PDF reports, and customer service transcripts.
-- **Dynamic Risk Triage**: Uses LangGraph to categorize complaint severity (e.g., Major batch recall for contamination vs. targeted packaging re-inspection).
-- **Intelligent Identity Resolution**: Distinguishes reporting agents (store managers, distributors) from end consumers, defaulting missing values cleanly to prevent schema failures.
-- **Multi-Turn Conversational Memory**: Enables QA auditors to make surgical field updates via chat without wiping existing form state.
-- **Audit-Ready Persistence**: Validates data schemas and commits verified records to a SQL database.
+================================================================================
+TECH STACK
+================================================================================
 
----
+- Frontend: React, Redux Toolkit, CSS3 / Modern UI
+- Backend: FastAPI (Python 3.10+)
+- Agent Framework: LangGraph, LangChain, Groq LLM
+- Database: SQLAlchemy (SQLite / PostgreSQL)
+- Validation: Pydantic v2
 
-## Tech Stack
+================================================================================
+PROJECT STRUCTURE
+================================================================================
 
-- **Frontend**: React, Redux Toolkit, Tailwind CSS
-- **Backend**: FastAPI, Python 3.10+
-- **Agent Orchestration**: LangGraph, LangChain, Groq
-- **Database**: SQLAlchemy (SQLite / PostgreSQL)
----
+aivoa-complaint-system/
+├── backend/
+│   ├── agent/
+│   │   ├── graph.py               # LangGraph workflow & decision logic
+│   │   └── state.py               # Agent state definitions
+│   ├── models/
+│   │   └── schemas.py             # Pydantic schemas
+│   ├── utils/
+│   │   └── document_parser.py     # Unstructured text & document parsers
+│   ├── database.py                # Database connection & session setup
+│   ├── db_models.py               # SQLAlchemy ORM models
+│   ├── main.py                    # FastAPI entrypoint & API routes
+│   └── requirements.txt           # Python dependencies
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── store/
+│   │   │   ├── complaintSlice.js  # Redux complaint state management
+│   │   │   └── store.js           # Redux store configuration
+│   │   ├── App.css                # Application styles
+│   │   ├── App.js                 # Primary dashboard & chat interface
+│   │   └── index.js
+│   ├── package.json
+│   └── package-lock.json
+├── sample_complaints/
+│   ├── complaint-1-high-severity-email.txt
+│   ├── complaint-2-medium-severity-packaging.txt
+│   └── complaint-3-log-and-edit-prompts.txt
+├── .gitignore
+└── README.md
 
-## Getting Started
+================================================================================
+DEMO TEST DATASETS
+================================================================================
 
-### 1. Backend Setup
+The sample_complaints/ directory contains three standardized scenarios to test and reproduce system behavior:
 
-\\\ash
-cd backend
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-\\\
+1. High Severity (Amoxicillin Contamination): Blister discolouration and particulate matter with adverse patient gastrointestinal symptoms; triggers critical risk triage and recall recommendations.
+2. Medium Severity (Metformin Packaging Defect): Damaged outer foil leaving tablets exposed to ambient air without patient ingestion; triggers quarantine and repackaging inspection.
+3. Multi-Turn Chat Correction (Paracetamol): Ingests an initial telephone complaint log, followed by interactive auditor prompts that correct the batch identifier and escalate severity.
 
-Create a \.env\ file inside \ackend/\:
-\\\env
-GROQ_API_KEY=your_groq_api_key_here
-DATABASE_URL=sqlite:///./qms_complaints.db
-\\\
+================================================================================
+GETTING STARTED
+================================================================================
 
-Start the FastAPI server:
-\\\ash
-uvicorn main:app --reload --port 8000
-\\\
+1. Prerequisites:
+   - Python 3.10+
+   - Node.js 18+ and npm
 
-### 2. Frontend Setup
+2. Backend Setup:
+   cd backend
+   python -m venv .venv
+   
+   # Windows PowerShell:
+   .venv\Scripts\Activate.ps1
+   
+   # macOS/Linux:
+   source .venv/bin/activate
+   
+   pip install -r requirements.txt
 
-\\\ash
-cd frontend
-npm install
-npm start
-\\\
+   # Create .env in backend/:
+   GROQ_API_KEY=your_groq_api_key_here
+   DATABASE_URL=sqlite:///./qms_complaints.db
 
-The application runs locally at \http://localhost:3000\.
+   # Start backend:
+   uvicorn main:app --reload --port 8000
+   API Docs: http://127.0.0.1:8000/docs
+
+3. Frontend Setup:
+   cd frontend
+   npm install
+   npm start
+   App URL: http://localhost:3000
