@@ -1,0 +1,21 @@
+=== Use this for the "Log Complaint" tool (type it directly into the copilot chat) ===
+
+A customer named Deepak Sharma called our support line on September 16, 2026
+to report that a batch of our Paracetamol 650mg tablets, product strength
+650mg, batch number PCM-3345-A, manufactured 2026-03-01 and expiring
+2028-02-28, had an unusual bitter taste and slightly crumbly texture
+compared to previous purchases. Quantity affected is around 50 strips.
+No adverse health effects were reported, but the customer wants it looked
+into. This was reported through our customer support hotline.
+
+=== Then, once the form is populated, try these as EDIT instructions ===
+
+1. "Actually the batch number should be PCM-3345-B, not A."
+2. "Increase the severity to High since we've now had two similar complaints
+    on this batch."
+3. "Update the suggested next step to 'Initiate CAPA and notify Regulatory
+    Affairs'."
+
+These are good for demonstrating Tool 2 (Edit Complaint) in your demo video —
+they show a correction, a risk re-classification, and a next-step override,
+all while everything else on the form stays untouched.
